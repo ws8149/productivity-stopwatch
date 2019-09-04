@@ -52,7 +52,10 @@ function split() {
 function lap() {
     lapCounter++;
     let p = document.createElement('UL');                       
-    let text = document.createTextNode('Lap #' + lapCounter + ': ' +timeToString(lapTime));     
+    
+    var taskName = prompt("Enter task", "");    
+    
+    let text = document.createTextNode(lapCounter + ': ' + taskName + " " + timeToString(lapTime));     
     p.appendChild(text);                                        
     document.getElementById('laps').appendChild(p);
     lapTime = 0;          
@@ -61,8 +64,12 @@ function lap() {
 function increment() {
     if (running) {
         timer = setTimeout(function() {
-            time++;                        
+            time++;                                  
             lapTime++;
+
+            // MADE IN HEAVEN           
+            // time += 100;
+            // lapTime += 100;
             
             document.getElementById('output').innerHTML = timeToString(time);
             increment();
